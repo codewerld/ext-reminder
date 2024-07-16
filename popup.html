@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reminder Extension v3 (Manifest V3)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        body {
+            width: 300px;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .title-reminder {
+            font-weight: bold;
+            padding-bottom: 6px;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+
+        .list {
+            list-style: none;
+            padding-left: 0px;
+        }
+
+        p {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .list-item {
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .list-item> :first-child {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .list-item> :nth-child(2) {
+            margin-bottom: 5px;
+        }
+
+        .list-item> :nth-child(3) {
+            color: #6b7280;
+        }
+
+        .button {
+            background-color: black;
+            color: white;
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input:focus {
+            border: 0.5px solid #cbd5e1;
+            /* To decrease, change to a thinner border */
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .back-button {
+            cursor: pointer;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .no-reminders {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 20px;
+        }
+
+        .helper {
+            font-size: 14px;
+            opacity: 70%;
+            padding-bottom: 12px;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="listView">
+        <div class="header">
+            <span class="title-reminder">Reminders</span>
+            <button id="createButton" class="button">Create+</button>
+        </div>
+        <div>
+            <ul id="remindersList" class="list"></ul>
+            <p id="noReminders" class="no-reminders" style="display: none;">No reminders yet. Click "Create+" to add
+                one!</p>
+        </div>
+    </div>
+
+    <div id="formView" class="form-container">
+        <span class="back-button" id="backButton">&#8592;</span>
+        <p class="helper">Click save when you're done.</p>
+        <div>
+            <p class="title">Title</p>
+            <input type="text" id="titleInput" placeholder="Enter reminder title" />
+            <p class="title">Description</p>
+            <input type="text" id="descriptionInput" placeholder="Enter reminder description" />
+            <p class="title">Date</p>
+            <input type="date" id="dateInput" />
+            <button id="saveButton" class="button">Save</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
